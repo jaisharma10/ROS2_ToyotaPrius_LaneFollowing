@@ -24,7 +24,6 @@ setup(
     entry_points={
         'console_scripts': [
             'video_saver = prius_line_following.saveVideo:main',
-            'line_follower = prius_line_following.line_following1:main',
             'laneFollowing = prius_line_following.line_following:main',
         ],
     },
