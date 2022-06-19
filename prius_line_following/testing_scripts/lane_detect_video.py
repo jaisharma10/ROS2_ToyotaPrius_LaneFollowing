@@ -1,0 +1,115 @@
+
+####
+# - Main purpse is Process A single frame to extract
+#   line and frame mid points using image processing techniques
+# - This scripts is Simple opencv Python based no ROS involved 
+#
+#  Written by Muhammad Luqman
+#  ros2,FOXY
+#  13/6/21
+#
+###
+
+
+import cv2
+import numpy
+import time 
+
+
+cap = cv2.VideoCapture('/home/jaisharma/output.avi')
+
+while(cap.isOpened()):
+        ##### Segmentation
+    ## Defining the color Upper bound and Lower bound limits to extract 
+    ret, frame = cap.read()
+    
+    print("Image Size: ", frame.shape)
+
+    cv2.imshow('output image',frame)
+
+    
+    light_line = numpy.array([10,10,10])
+    dark_line = numpy.array([153,153,153])
+    mask = cv2.inRange(frame, light_line,dark_line)
+
+    cv2.imshow('output image',mask)
+
+
+        ##### Boundaries Extraction
+    ## applying the canny edge dector function
+    canny= cv2.Canny(mask,20,200)
+    ## Cropping the image
+    r1=120;c1=0
+    img = canny[r1:r1+161,c1:c1+640]
+    
+    
+    cv2.imshow('output image',canny)
+    
+
+    ##### Finding Line  Mid point
+    ## Visually finding the perfect Row to fix for mid points
+    ## by setting all values to be light
+    edge=[]
+    for i in range (639):
+        if(img[160,i]==255):
+            edge.append(i)
+    print("Edge-Point List: ", edge)
+
+    ## We only need two points # one from left line # second from right line 
+    # When values are 4
+    if(len(edge)==4):
+        edge[0]=edge[0]
+        edge[1]=edge[2]
+    ## When Values are 3 and if they are 2 we donot need to process them
+    ## If the values of pixels is greater then 5 then they are adjecent to eachother
+    if(len(edge)==3):
+        for i in range(len(edge)):
+            if(edge[1]-edge[0] > 5): ## meaning idx(0) and idx(1) are ok [193, 506, 507 ]
+                edge[0]=edge[0]
+                edge[1]=edge[1]
+            else:#[193, 194, 507 ]
+                edge[0]=edge[0]
+                edge[1]=edge[2]
+    
+    ## Apllying a white pixel to final line mid point found
+    mid_area = int((edge[1]-edge[0]))
+    mid_point= int(edge[0] + (mid_area/2))
+    img[160,int(mid_point)]=255
+
+
+        ##### Finding Frame Mid point
+    frame_mid = int(frame.shape[1]/2)
+
+
+        ##### Controlling the car process
+    ## Although it is not applying velocites yet but we will print things on the
+    # Screen to see the output
+    error=frame_mid-mid_point 
+
+    if(error < 0):## go left
+        action="Go Right"
+    else :
+        action="Go Left"
+
+    ## Writing on the Frame as output for better understanding
+    f_image = cv2.putText(img, action, (20,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,), 2, cv2.LINE_AA)
+    finalImg = cv2.line(f_image, (mid_point,20), (mid_point,140), (128,128,0), 5) 
+    finalImg = cv2.line(finalImg, (mid_point - 10,80), (mid_point + 10,80), (128,128,0), 5) 
+    finalImg = cv2.line(finalImg, (frame_mid,20), (frame_mid,140), (128,0,255), 5) 
+    finalImg = cv2.line(finalImg, (frame_mid - 10,80), (frame_mid + 10,80), (128,128,0), 5) 
+
+
+    print("Error",error,"  /  Frame_mid",frame_mid,"  /  Mid_point",mid_point)
+    time.sleep(0.2)
+    
+    
+    
+    
+    
+    
+    cv2.imshow('output image',finalImg)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
