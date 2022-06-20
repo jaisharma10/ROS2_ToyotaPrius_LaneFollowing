@@ -2,17 +2,35 @@
 
 **Goal -->** The goal of this project is to simulate a Lane Detection and Lane Following Toyota Prius in a Gazebo environment. All programs are written, tested and simulated using ROS 2 - Foxy Fitzroy.
 
-## Perception Algorithm Pipeline
+<p align="center">
+  <img src = "Images/img5.png" width = "500" >
+</p>
+
+## Algorithm Pipeline
+
+<p align="center">
+  <img src = "Images/nodeGraph.png" width = "800" >
+</p>
+
+## Perception Pipeline
+
+Lane Detection and Lane Following:
+- Perform Image Segmentation
+- Perform CannyEdge Method
+- Compare Lane center to Camera Frame center
+- Calculate Orientation error
+- Correct Path by publishing updated velocities
 
 ## Images
 
-<img src = "Images/img1.png" width = "300" >
-<img src = "Images/img2.png" width = "300" >
-<img src = "Images/img3.png" width = "300" >
-<img src = "Images/img4.png" width = "300" >
-<img src = "Images/img5.png" width = "300" >
-<img src = "Images/img6.png" width = "300" >
-
+<p align="center">
+  <img src = "Images/img1.png" width = "500" >
+  <img src = "Images/img2.png" width = "500" >
+  <img src = "Images/img3.png" width = "500" >
+  <img src = "Images/img4.png" width = "500" >
+  <img src = "Images/img6.png" width = "500" >
+  <img src = "Images/img7.png" width = "500" >
+</p>
 
 ## Results
 
@@ -22,5 +40,5 @@ The final result can be found in this [Video Link](https://drive.google.com/file
 - Ubuntu 20.04
 - ROS2 Foxy
 
-## Support
-For any questions, email me at jaisharm@umd.edu
+<!-- ## Support
+For any questions, email me at jaisharm@umd.edu -->
