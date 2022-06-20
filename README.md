@@ -28,12 +28,12 @@ Lane Detection and Lane Following:
 ## Images
 
 <p align="center">
-  <img src = "Images/img1.png" width = "500" >
-  <img src = "Images/img2.png" width = "500" >
-  <img src = "Images/img3.png" width = "500" >
-  <img src = "Images/img4.png" width = "500" >
-  <img src = "Images/img6.png" width = "500" >
-  <img src = "Images/img7.png" width = "500" >
+  <img src = "Images/img1.png" width = "450" >
+  <img src = "Images/img2.png" width = "450" >
+  <img src = "Images/img3.png" width = "450" >
+  <img src = "Images/img4.png" width = "450" >
+  <img src = "Images/img6.png" width = "450" >
+  <img src = "Images/img7.png" width = "450" >
 </p>
 
 ## Results
