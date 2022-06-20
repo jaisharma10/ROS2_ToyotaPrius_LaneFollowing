@@ -10,7 +10,7 @@
 - Ubuntu 20.04
 - ROS2 Foxy
 
-## Algorithm Pipeline
+## RQT Graph
 
 <p align="center">
   <img src = "Images/nodeGraph.png" width = "600" >
@@ -44,6 +44,11 @@ The final result can be found in this [Video Link](https://drive.google.com/file
   <img src = "Images/priusTake1_AdobeExpress.gif" width = "300" >
 </p>
 
+## Acknowledgements
+
+ - Inspired by work done in this [Github Repo](https://github.com/noshluk2/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV)
+ - [Gazebo Models](https://github.com/osrf/gazebo_models)
+ - ROS 2 Foxy Fitzroy - [Tutorials](https://docs.ros.org/en/foxy/Tutorials.html)
 
 ## Support
 For any questions, email me at jaisharm@umd.edu
