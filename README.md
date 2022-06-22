@@ -1,6 +1,6 @@
 # Lane Following Simulation of a Toyota Prius 
 
-**Goal -->** The goal of this project is to simulate a Lane Detection and Lane Following Toyota Prius in a Gazebo environment. All programs are written, tested and simulated using ROS 2 - Foxy Fitzroy.
+**Goal -->** The goal of this project is to simulate a Lane Detection and Lane Following Toyota Prius in a Gazebo environment. All programs are written, tested and simulated for ROS 2 - Foxy Fitzroy.
 
 <p align="center">
   <img src = "Images/img5.png" width = "400" >
@@ -8,7 +8,7 @@
 
 ## System Requirements
 - Ubuntu 20.04
-- ROS2 Foxy
+- ROS2 - Foxy Fitzroy
 
 ## RQT Graph
 
@@ -51,4 +51,12 @@ The final result can be found in this [Video Link](https://drive.google.com/file
  - ROS 2 Foxy Fitzroy - [Tutorials](https://docs.ros.org/en/foxy/Tutorials.html)
 
 ## Support
+
+*NOTE:* all file paths in the repository are absolute and they may need to updated for you personal system. Below a list of files that may need to be correted.
+- urdf/prius.world
+- world/prius_on_track_empty.world
+- world/prius_on_track.world
+- prius_line_following/saveVideo.py 
+- launch/car_on_track.launch.py 
+
 For any questions, email me at jaisharm@umd.edu
