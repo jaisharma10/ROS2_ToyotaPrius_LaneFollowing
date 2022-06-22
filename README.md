@@ -52,7 +52,7 @@ The final result can be found in this [Video Link](https://drive.google.com/file
 
 ## Support
 
-*NOTE:* all file paths in the repository are absolute and they may need to updated for you personal system. Below a list of files that may need to be correted.
+*NOTE:* all file paths in the repository are absolute and they may need to updated for you personal system. Below is a list of files that may need to be correted.
 - urdf/prius.world
 - world/prius_on_track_empty.world
 - world/prius_on_track.world
